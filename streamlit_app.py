@@ -80,7 +80,7 @@ class PoseCorrection(VideoTransformerBase):
         # Initialize MediaPipe Pose *within* the transformer to avoid sharing across threads/sessions
         self.pose = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5)
 
-    def transform(self, frame: av.VideoFrame) -> np.ndarray:
+    def recv(self, frame: av.VideoFrame) -> np.ndarray:
         # Convert the frame to a NumPy array (BGR format for OpenCV)
         image = frame.to_ndarray(format="bgr24")
         
