@@ -193,7 +193,13 @@ class PoseCorrection(VideoTransformerBase):
 webrtc_ctx = webrtc_streamer(
     key="posture-corrector",
     video_processor_factory=PoseCorrection,
-    rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+    rtc_configuration={
+        "iceServers": [
+            {"urls": ["stun:stun.l.google.com:19302"]},
+            {"urls": ["stun:stun1.l.google.com:19302"]},
+            {"urls": ["stun:stun.services.mozilla.com"]},
+        ]
+    },
     media_stream_constraints={"video": True, "audio": False},
     async_processing=True,
 )
