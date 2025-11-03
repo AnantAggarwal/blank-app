@@ -2,6 +2,5 @@ streamlit
 opencv-python-headless
 mediapipe
 numpy
-playsound
 av
 streamlit-webrtc
