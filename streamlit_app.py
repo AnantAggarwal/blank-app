@@ -184,7 +184,7 @@ class PoseCorrection(VideoTransformerBase):
         st.session_state.alert_trigger = alert_sound_trigger
         
         # Return the processed frame
-        return image.tobytes()
+        return av.VideoFrame.from_ndarray(image, format="bgr24")
 
 
 # --- Streamlit Main Loop ---
